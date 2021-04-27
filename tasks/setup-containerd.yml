@@ -44,7 +44,7 @@
       service:
         name: containerd
         state: "{% if containerd_service_state != 'stopped' %}restarted{% else %}stopped{% endif %}"
-        daemon_reload: yes
+        daemon_reload: true
       when: _containerd_systemd_override.changed
 
   when: containerd_service_override | length > 0

@@ -36,7 +36,7 @@
       service:
         name: docker
         state: "{% if docker_service_state != 'stopped' %}restarted{% else %}stopped{% endif %}"
-        daemon_reload: yes
+        daemon_reload: true
       when: _docker_systemd_override.changed
 
   when: docker_service_override | length > 0
